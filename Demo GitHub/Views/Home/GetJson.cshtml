@@ -1,0 +1,29 @@
+﻿@model Demo_GitHub.Models.JsonViewModel
+
+@section scripts {
+    <script type="text/javascript">
+        function copyJson() {
+            var textarea = document.createElement('textarea');
+            textarea.textContent = document.getElementById("jsonPre").textContent;
+            document.body.appendChild(textarea);
+
+            var selection = document.getSelection();
+            var range = document.createRange();
+            range.selectNode(textarea);
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            document.execCommand('copy');
+            selection.removeAllRanges();
+
+            document.body.removeChild(textarea);
+        }
+    </script>
+}
+
+    <div class="container">
+        <h2>Token de seguridad</h2>
+        <p> Cliente @Model.IdCliente, comprobante @Model.IdComprobante </p>
+        <pre id="jsonPre">@Model.Json</pre>
+        <button id="btn" type="button" class="btn btn-default" onclick="copyJson()">Copiar JSON</button>
+    </div>
