@@ -22,7 +22,6 @@ namespace Demo_GitHub.Controllers
 
             if (!System.IO.File.Exists(path))
             {
-                // Create a file to write to.
                 using (StreamWriter sw = System.IO.File.CreateText(path))
                 {
                     sw.WriteLine(comprobante);
@@ -35,14 +34,6 @@ namespace Demo_GitHub.Controllers
                     sw.WriteLine(comprobante);
                 }
             }
-
-        }
-
-        [HttpGet]
-        public ActionResult GetJson(long idCliente, long idComprobante)
-        {
-            var model = new JsonViewModel(idCliente, idComprobante);
-            return View(model);
         }
     }
 }

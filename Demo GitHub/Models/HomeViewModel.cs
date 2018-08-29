@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Demo_GitHub.Models
 {
@@ -14,8 +13,8 @@ namespace Demo_GitHub.Models
 
         public IList<ComprobanteJson> JsonList { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es requerido")]
-        [Display(Name = "Token de seguridad")]
+        public long IdCliente { get; set; }
+
         public string Token { get; set; }
 
         private void AddComprobanteToList()
