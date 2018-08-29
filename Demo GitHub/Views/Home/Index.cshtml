@@ -1,56 +1,63 @@
 ﻿@model Demo_GitHub.Models.HomeViewModel
 
+@section scripts{
+    <script type="text/javascript">
+        $("#readLink").click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: $(this).attr("href"),
+                success: function () {
+                    location.reload();
+                }
+            });
+        });
+    </script>        
+}
+
 <h2>Obtener JSON de comprobante</h2>
 <p>Presione en "Ver JSON" al lado del comprobante de interés. De ser necesario, actualice el ID del cliente y el token de seguridad.</p>
-
 <div class="row">
     <div class="col-md-3">
-        <h3>ID del cliente</h3>
+        <h4>ID del cliente</h4>
         <p>
             @Html.TextBox("IdCliente", Model.IdCliente, new { @class = "form-control" })
         </p>
     </div>
     <div class="col-md-3">
-        <h3>Token de seguridad</h3>
+        <h4>Token de seguridad</h4>
         <p>
             @Html.TextBox("Token", Model.Token, new { @class = "form-control" })
         </p>
     </div>
 </div>
-<br />
-<div class="row">
-    <div class="col-md-3">
-        <p>
-            <button id="btn" type="button" class="btn btn-default" onclick="copyJson()">Actualizar cliente y token</button>
-        </p>
-    </div>
-</div>
-
-    <h3>Nuevos comprobantes</h3>
-    <div class="table-responsive">
-        <table class="table">
-            <thead class="table">
+<button id="btn" type="button" class="btn btn-default" onclick="location.href='@Url.Action("SetAccessData", "Home", new { IdCliente = 1, Token = "otro token de prueba", })'">Actualizar cliente y token</button>
+<br /><br />
+<h3>Nuevos comprobantes</h3>
+<div class="table-responsive">
+    <table class="table" style="width:50%">
+        <thead class="table">
+            <tr>
+                <th>
+                    Id Comprobante
+                </th>
+                <th>
+                    Detalles
+                </th>
+            </tr>
+        </thead>
+        <tbody class="table">
+            @foreach (var item in Model.JsonList)
+            {
                 <tr>
-                    <th>
-                        Id Comprobante
-                    </th>
-                    <th>
-                        Detalles
-                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdComprobante)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Ver JSON", "Index", "Json", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, null) |
+                        @Html.ActionLink("Marcar como leído", "MarkAsReaded", "Json", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, new { id = "readLink" })
+                    </td>
                 </tr>
-            </thead>
-            <tbody class="table">
-                @foreach (var item in Model.JsonList)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IdComprobante)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Ver JSON", "Index", "Json", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, null)
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+            }
+        </tbody>
+    </table>
+</div>

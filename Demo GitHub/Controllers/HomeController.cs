@@ -14,11 +14,10 @@ namespace Demo_GitHub.Controllers
             return View(model);
         }
 
-        [HttpGet]
         public void AddComprobante(long id, long idComprobante)
         {
             string comprobante = $"{id};{idComprobante}";
-            string path = @"C:\inetpub\wwwroot\Demo GitHub\IO\Prueba.txt";
+            string path = @"C:\inetpub\wwwroot\Demo GitHub\IO\Comprobantes.txt";
 
             if (!System.IO.File.Exists(path))
             {
@@ -33,6 +32,14 @@ namespace Demo_GitHub.Controllers
                 {
                     sw.WriteLine(comprobante);
                 }
+            }
+        }
+
+        public void SetAccessData(long idCliente, string token)
+        {
+            using (StreamWriter file =  new StreamWriter(@"C:\inetpub\wwwroot\Demo GitHub\IO\Acceso.txt"))
+            {
+                file.WriteLine($"{idCliente};{token}");                
             }
         }
     }
