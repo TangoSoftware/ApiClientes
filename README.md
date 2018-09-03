@@ -28,7 +28,7 @@ La versión requerida para consumir los comprobantes de Tango en formato JSON es
 ### Precondiciones de funcionamiento
 [<sub>Volver</sub>](#inicio)
 
-Para poner a disposición los  JSONs de los comprobantes se requiere configurar previamente en Tango Gestión:
+Para poner a disposición los  JSONs de los comprobantes se requiere configurar previamente en Tango Gestión las siguientes funciones:
 
 • Dentro del ABM de Clientes marcar aquellos clientes que desea sincronizar con la aplicación Nexo Clientes. 
 
