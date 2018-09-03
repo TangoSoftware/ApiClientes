@@ -58,7 +58,8 @@ Para configurar el ambiente de producción desde Tango Sync debe vincular una em
 Luego de haber vinculado una empresa de nube con una empresa de Tango Gestión, acceda a nexo Clientes / API para parametrizar el servicio que entrega los JSONs de los comprobantes electrónicos.
 
 ACA VA IMAGEN DEL PERFIL, pulsando el menú API
---![imagen api](https://github.com/TangoSoftware/ApiTiendas/blob/master/api.jpg)
+--![imagen api](https://github.com/TangoSoftware/ApiClientes/menú.JPG)
+
 
 En esta pantalla observará:
 
