@@ -18,9 +18,11 @@ Este repositorio incluye el código fuente y la documentación necesaria para la
 
 <a name="instalacion"></a>
 ## Puesta en marcha
+[<sub>Volver</sub>](#inicio)
 
 <a name="versiones"></a>
 ### Versiones soportadas de Tango Gestión
+[<sub>Volver</sub>](#inicio)
 
 La versión requerida para consumir los comprobantes de Tango en formato JSON es: XX.YY.ZZZZ o superior.
 
