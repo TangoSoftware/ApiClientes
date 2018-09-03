@@ -24,7 +24,8 @@ Este repositorio incluye el código fuente y la documentación necesaria para la
 ### Versiones soportadas de Tango Gestión
 [<sub>Volver</sub>](#inicio)
 
-La versión requerida para consumir los comprobantes de Tango en formato JSON es: XX.YY.ZZZZ o superior.
+La versión mínima requerida de Tango Gestión para consumir los comprobantes en formato JSON es:
+XX.YY.ZZZZ o superior.
 
 <a name="precondiciones"></a>
 ### Precondiciones de funcionamiento
@@ -58,8 +59,13 @@ Para configurar el ambiente de producción desde Tango Sync debe vincular una em
 Luego de haber vinculado una empresa de nube con una empresa de Tango Gestión, acceda a nexo Clientes / API para parametrizar el servicio que entrega los JSONs de los comprobantes electrónicos.
 
 ACA VA IMAGEN DEL PERFIL, pulsando el menú API
---![imagen api](https://github.com/TangoSoftware/ApiClientes/menú.JPG)
 
+
+
+![imagen api](https://github.com/TangoSoftware/ApiClientes/master/menú.JPG)
+
+
+--TangoSoftware/ApiClientes/master/menú.JPG
 
 En esta pantalla observará:
 
