@@ -1,15 +1,19 @@
-﻿using System;
+﻿using Demo_GitHub.Helpers;
+using System;
 using System.Collections.Generic;
-using System.Configuration;
+using System.Web.Hosting;
 
 namespace Demo_GitHub.Models
 {
     public class HomeViewModel
     {
+        private static readonly string ACCESS = @"~/App_Data/Acceso.txt";
+        private static readonly string COMPROBANTES = @"~/App_Data/Comprobantes.txt";
+
         public HomeViewModel()
         {
-            IdCliente = Convert.ToInt64(GetAccessData(0));
-            Token = GetAccessData(1);
+            IdCliente = Convert.ToInt64(FileHelper.GetFieldFromFile(HostingEnvironment.MapPath(ACCESS), 0, 0));
+            Token = FileHelper.GetFieldFromFile(HostingEnvironment.MapPath(ACCESS), 0, 1);
 
             JsonList = new List<ComprobanteJson>();
             AddComprobanteToList();
@@ -25,7 +29,7 @@ namespace Demo_GitHub.Models
 
         private void AddComprobanteToList()
         {
-            string[] lines = System.IO.File.ReadAllLines(@"C:\inetpub\wwwroot\Demo GitHub\IO\Comprobantes.txt");
+            string[] lines = System.IO.File.ReadAllLines(HostingEnvironment.MapPath(COMPROBANTES));
 
             foreach (string line in lines)
             {
@@ -34,16 +38,6 @@ namespace Demo_GitHub.Models
                 if (Convert.ToInt64(comprobante[0]) == this.IdCliente)
                     JsonList.Add(new ComprobanteJson() { IdCliente = this.IdCliente, IdComprobante = Convert.ToInt64(comprobante[1]) });                
             }
-        }
-
-        private string GetAccessData(int posicion)
-        {
-            System.IO.StreamReader file =  new System.IO.StreamReader(@"C:\inetpub\wwwroot\Demo GitHub\IO\Acceso.txt");
-            string line = file.ReadLine();
-            file.Close();
-
-            string[] accessData = line.Split(';');
-            return accessData[posicion];
         }
     }
 }

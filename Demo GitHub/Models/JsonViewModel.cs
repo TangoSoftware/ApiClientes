@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Demo_GitHub.Helpers;
+using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 
 namespace Demo_GitHub.Models
 {
     public class JsonViewModel
     {
+        private static readonly string COMPROBANTES = @"~/App_Data/Comprobantes.txt";
+
         public long IdCliente { get; set; }
 
         public long IdComprobante { get; set; }
@@ -30,15 +32,23 @@ namespace Demo_GitHub.Models
 
             using (var httpClient = new HttpClient())
             {
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("kAwfZMgk5cMSU+7oPU3TCKtJLgjiE6DEXVYGO75eP6iqp5B5cODoMBehebXfs3Mq8fKW9Rg1MpyXOmafhiZ9ocPTa7jIewMsmxMLvfz47fLAhuJR890Nwip80YbfvG7Z");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", $"key={FileHelper.GetFieldFromFile(@"C:\inetpub\wwwroot\Demo GitHub\App_Data\Acceso.txt", 0, 1)}");
 
-                HttpWebRequest request = WebRequest.Create(completeUrl) as HttpWebRequest;
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-                var encoding = Encoding.ASCII;
-                using (var reader = new StreamReader(response.GetResponseStream(), encoding))
+                try
                 {
-                    return reader.ReadToEnd();
+                    HttpWebRequest request = WebRequest.Create(completeUrl) as HttpWebRequest;
+                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                    FileHelper.DeleteLine(COMPROBANTES, $"{IdCliente};{IdComprobante}");
+
+                    var encoding = Encoding.ASCII;
+                    using (var reader = new StreamReader(response.GetResponseStream(), encoding))
+                    {
+                        return reader.ReadToEnd();
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new WebException(e.Message);
                 }
             }
         }

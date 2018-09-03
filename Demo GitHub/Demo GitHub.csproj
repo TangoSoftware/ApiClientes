@@ -185,8 +185,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="IO\Acceso.txt" />
-    <Content Include="IO\Comprobantes.txt" />
+    <Content Include="App_Data\Acceso.txt" />
+    <Content Include="App_Data\Comprobantes.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -218,9 +218,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Json\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

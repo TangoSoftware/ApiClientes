@@ -45,6 +45,22 @@ namespace Demo_GitHub.Helpers
         }
 
         /// <summary>
+        /// Devuelve el campo elegido de la linea indicada en un archivo con registros separados por punto y coma
+        /// </summary>
+        /// <param name="filename">Nombre del archivo</param>
+        /// <param name="line">Linea del archivo</param>
+        /// <param name="position">Posición del campo dentro de la linea</param>
+        /// <returns></returns>
+        public static string GetFieldFromFile(string filename, int line, int position)
+        {
+            string[] lines = File.ReadAllLines(filename);
+            string selectedLine = lines[line];
+            string[] field = selectedLine.Split(';');
+
+            return field[position];
+        }
+
+        /// <summary>
         /// Elimina un archivo de texto y lo vuele a crear
         /// </summary>
         /// <param name="filename">Ruta del archivo de texto a recrear</param>

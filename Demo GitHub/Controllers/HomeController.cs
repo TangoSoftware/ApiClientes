@@ -1,11 +1,15 @@
 ﻿using Demo_GitHub.Models;
 using System.IO;
+using System.Web.Hosting;
 using System.Web.Mvc;
 
 namespace Demo_GitHub.Controllers
 {
     public class HomeController : Controller
     {
+        private static readonly string ACCESS = @"~/App_Data/Acceso.txt";
+        private static readonly string COMPROBANTES = @"~/App_Data/Comprobantes.txt";
+
         public ActionResult Index()
         {
             ViewBag.Message = "Demostración de JSON de comprobantes";
@@ -17,7 +21,7 @@ namespace Demo_GitHub.Controllers
         public void AddComprobante(long id, long idComprobante)
         {
             string comprobante = $"{id};{idComprobante}";
-            string path = @"C:\inetpub\wwwroot\Demo GitHub\IO\Comprobantes.txt";
+            string path = HostingEnvironment.MapPath(COMPROBANTES);
 
             if (!System.IO.File.Exists(path))
             {
@@ -37,7 +41,7 @@ namespace Demo_GitHub.Controllers
 
         public void SetAccessData(long idCliente, string token)
         {
-            using (StreamWriter file =  new StreamWriter(@"C:\inetpub\wwwroot\Demo GitHub\IO\Acceso.txt"))
+            using (StreamWriter file =  new StreamWriter(HostingEnvironment.MapPath(ACCESS)))
             {
                 file.WriteLine($"{idCliente};{token}");                
             }
