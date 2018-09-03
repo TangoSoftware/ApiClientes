@@ -73,7 +73,7 @@ En esta pantalla observará:
 
 • **Notificar nuevos comprobantes a la URL:** Es la URL a la cual se desea informar cuando se tengan novedades de nuevos comprobantes disponibles para consumir en formato JSON.
 
-Pulse el botón &quot;Aceptar&quot; para confirmar los cambios
+Pulse el botón &quot;Aceptar&quot; para confirmar los cambios.
 
 <a name="modouso"></a>
 ## Modo de uso
@@ -88,7 +88,7 @@ A continuación se detalla de manera técnica como está compuesta la API, qué 
 
 #### Método: getjsonfrom
 
-- Tipo: GET
+- Tipo: GET.
 
 - Objetivo: Entregar los JSON de comprobantes cuya fecha de emisión sea mayor a una fecha dada.
 
@@ -103,7 +103,7 @@ A continuación se detalla de manera técnica como está compuesta la API, qué 
 
 #### Método: getnotdownloadedjsonfrom
 
-- Tipo: GET
+- Tipo: GET.
 
 - Objetivo: Entregar JSON de comprobantes que aún no fueron entregados por el servicio a partir de una fecha dada. 
 
@@ -117,7 +117,7 @@ A continuación se detalla de manera técnica como está compuesta la API, qué 
    
 #### Método: getjson
 
-- Tipo: GET
+- Tipo: GET.
 
 - Objetivo: Entregar JSON específico para un id de cliente y id de comprobante en particular.  
 
@@ -158,6 +158,7 @@ VER EL README DEL REPO DE NEXO TIENDAS PARA MAYOR ORIENTACION
 
 <a name="pregfrec"></a>
 ## Preguntas frecuentes
+[<sub>Volver</sub>](#inicio)
 
 
 - **¿PREG FREC 1?**
