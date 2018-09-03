@@ -48,7 +48,7 @@ namespace Demo_GitHub.Models
                 }
                 catch (Exception e)
                 {
-                    throw new WebException(e.Message);
+                    return e.Message;
                 }
             }
         }
