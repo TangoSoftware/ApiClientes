@@ -139,14 +139,18 @@ A continuación se detalla de manera técnica como está compuesta la API, qué 
 ### Utilización de la URL de notificación
 [<sub>Volver</sub>](#inicio)
 
-De modo adicional, se puede parametrizar en la configuración de la API en Nexo Clientes, una URL a la cual enviar una novedad cada vez que un cliente ponga a disposición un nuevo JSON asociado a un comprobante.
+De modo adicional, se puede parametrizar en la configuración de la API en Nexo Clientes, una URL a la cual enviar una novedad cada vez que un cliente ponga a disposición un nuevo JSON asociado a un comprobante. Para funcionar, se debe completar el campo **Notificar nuevos comprobantes a la URL**.
 
 Dicha URL deberá cumplir con el estándar XXXX, siendo de la forma:
 www.ejemplo.com
 o
-https://ejemplo.com/
+https://ejemplo.com
+
+Ante novedades de nuevos comprobantes publicados en Nexo Clientes, se enviará un request a la URL parametrizada con el id de cliente y el id de comprobante a notificar. Cumplirá el siguiente formato:
+www.ejemplo.com/IdCliente/IdComprobante
 
 En este repositorio se deja a disponibilidad
+
 
 
 <a name="djson"></a>
