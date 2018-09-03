@@ -9,8 +9,8 @@ Este repositorio incluye el código fuente y la documentación necesaria para la
     + [Ambientes](#ambientes)
     + [Configurar API](#configApi)
  + [Modo de uso](#modouso)
-    + [utilización de la API](#usoApi)
-    + [utilización de la URL de notificacion](#usoNotif)
+    + [Utilización de la API](#usoApi)
+    + [Utilización de la URL de notificacion](#usoNotif)
     + [Datos del Json](#djson)
  + [Preguntas frecuentes](#pregfrec)
 
@@ -33,11 +33,11 @@ XX.YY.ZZZZ o superior.
 
 Para poner a disposición los  JSONs de los comprobantes se requiere configurar previamente en Tango Gestión las siguientes funciones:
 
-• Dentro del ABM de Clientes marcar aquellos clientes que desea sincronizar con la aplicación Nexo Clientes. 
+• Dentro del ABM de Clientes marcar aquellos clientes que desea sincronizar con la aplicación Nexo Clientes para que publiquen comprobantes. 
 
 • Parametrizar el certificado digital fiscal en Tango para obtener el CAE de sus comprobantes electrónicos.(La API sólo entrega comprobantes electrónicos con CAE asignado por AFIP).
 
-• La empresa de Tango, cuyos comprobantes en JSON desea entregar vía API, se encuentre debidamente vinculada a través de Tango Sync a la aplicación Nexo Clientes.
+• La empresa de Tango, cuyos comprobantes en JSON desea entregar vía API, vinculada a través de Tango Sync a la aplicación Nexo Clientes.
 
 <a name="ambientes"></a>
 ### Ambientes
@@ -58,14 +58,12 @@ Para configurar el ambiente de producción desde Tango Sync debe vincular una em
 
 Luego de haber vinculado una empresa de nube con una empresa de Tango Gestión, acceda a nexo Clientes / API para parametrizar el servicio que entrega los JSONs de los comprobantes electrónicos.
 
-ACA VA IMAGEN DEL PERFIL, pulsando el menú API
+(Pulse en el opción "API" para acceder a su configuración).
+
+![imagen api](https://github.com/TangoSoftware/ApiClientes/blob/master/men%C3%BA.JPG)
 
 
 
-![imagen api](https://github.com/TangoSoftware/ApiClientes/master/menú.JPG)
-
-
---TangoSoftware/ApiClientes/master/menú.JPG
 
 En esta pantalla observará:
 
