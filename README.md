@@ -11,8 +11,9 @@ Este repositorio incluye el código fuente y la documentación necesaria para la
  + [Modo de uso](#modouso)
     + [Utilización de la API](#usoApi)
     + [Utilización de la URL de notificacion](#usoNotif)
+    + [Consola de ejemplo](#Console)
     + [Datos del Json](#djson)
- + [Preguntas frecuentes](#pregfrec)
+
 
 
 
@@ -149,6 +150,11 @@ https://ejemplo.com
 Ante novedades de nuevos comprobantes publicados en Nexo Clientes, se enviará un request a la URL parametrizada con el id de cliente y el id de comprobante a notificar. Cumplirá el siguiente formato:
 www.ejemplo.com/IdCliente/IdComprobante
 
+<a name="Console"></a>
+### Aplicación de consola de ejemplo
+[<sub>Volver</sub>](#inicio)
+
+
 En este repositorio se deja a disponibilidad
 
 
@@ -160,15 +166,7 @@ En este repositorio se deja a disponibilidad
 VER EL README DEL REPO DE NEXO TIENDAS PARA MAYOR ORIENTACION
 
 
-<a name="pregfrec"></a>
-## Preguntas frecuentes
-[<sub>Volver</sub>](#inicio)
 
-
-- **¿PREG FREC 1?**
-
-| Respuesta1. |
-| --- |
 
 
 
