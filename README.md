@@ -139,8 +139,21 @@ Ante novedades de nuevos comprobantes publicados en Nexo Clientes, se enviará u
 ### Aplicación web de ejemplo
 [<sub>Volver</sub>](#inicio)
 
-![imagen api](https://github.com/TangoSoftware/ApiClientes/blob/master/men%C3%BA.JPG)
-![imagen api](https://github.com/TangoSoftware/ApiClientes/blob/master/men%C3%BA.JPG)
+Este repositorio incluye el código fuente de una aplicación web de ejemplo, desarrollada en ASP.NET con .NET Framework 4.6.1. Dicha aplicación puede ser utilizada para recibir las notificaciones de nuevos comprobantes, y permite leer los JSONs de dichos comprobantes. Para ello, deberá:
+
+ 1. Clonar este repositorio.
+ 
+ 2. Modificar en el archivo web.config los valores de las claves "IdCliente" y "Token" por los valores correspondientes que figuran en el correo electrónico recibido al configurar la API de Tango Clientes. Estos valores se corresponden con el cliente de cuyos nuevos comprobantes desea ser notificado.
+ 
+ 3. Desplegar la aplicación en un servidor propio.
+ 
+ 4. Incluir en la configuración de la API de Tango Clientes la URL correspondiente a esta aplicación desplegada en su servidor. Es decir, si la URL de la web en su servidor es http://www.miservidordeejemplo.com/, entonces la URL a notificar será http://www.miservidordeejemplo.com/home/notificar
+
+En la vista principal de la aplicación web figuran el ID del cliente, el token de seguridad, y la lista de nuevos comprobantes. Pdrá ver el JSON de cada comprobante o, directamente, marcarlo como leído, lo cual lo quitará inmediatamente de dicha lista.
+![imagen api](https://github.com/TangoSoftware/ApiClientes/blob/master/main.png)
+
+En la vista del JSON del comprobante correspondiente, podrá ver el JSON, copiarlo y marcarlo como leído, lo cual también lo quitará inmediatamente de la lista de nuevos comprobantes.
+![imagen api](https://github.com/TangoSoftware/ApiClientes/blob/master/json.png)
 
 <a name="djson"></a>
 ### Detalle y composición del JSON
