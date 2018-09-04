@@ -2,7 +2,7 @@
 
 @section scripts{
     <script type="text/javascript">
-        $("#readLink").click(function (e) {
+        $(".readLink").click(function (e) {
             e.preventDefault();
             $.ajax({
                 url: $(this).attr("href"),
@@ -48,7 +48,7 @@
                     </td>
                     <td>
                         @Html.ActionLink("Ver JSON", "ComprobanteJson", "Home", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, null) |
-                        @Html.ActionLink("Marcar como leído", "MarkAsReaded", "Home", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, new { id = "readLink" })
+                        @Html.ActionLink("Marcar como leído", "MarkAsReaded", "Home", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, new { @class = "readLink" })
                     </td>
                 </tr>
             }

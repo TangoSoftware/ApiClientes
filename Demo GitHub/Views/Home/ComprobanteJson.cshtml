@@ -18,13 +18,23 @@
 
             document.body.removeChild(textarea);
         }
+
+        function readAndBack() {
+            $.ajax({
+                url: 'http://cozzi10.axoft.com/Home/MarkAsReaded?idCliente=' + @Model.IdCliente + '&idComprobante=' + @Model.IdComprobante,
+                success: function () {
+                    window.location.replace("http://cozzi10.axoft.com/");
+                }
+            }); 
+        }
     </script>
 }
 
-<div class="container">
-    <h3>JSON del comprobante @Model.IdComprobante del cliente @Model.IdCliente</h3>
-    <div>
-        <div class="well" id="json" style="overflow:auto; width: 100%;">@Model.Json</div>
-    </div>   
-    <button id="btn" type="button" class="btn btn-default" onclick="copyJson()">Copiar Json</button>
-</div>
+    <div class="container">
+        <h3>JSON del comprobante @Model.IdComprobante del cliente @Model.IdCliente</h3>
+        <div>
+            <div class="well" id="json" style="overflow:auto; width: 100%;">@Model.Json</div>
+        </div>
+        <button id="btn" type="button" class="btn btn-default" onclick="copyJson()">Copiar Json</button>
+        <button id="btn" type="button" class="btn btn-danger" onclick="readAndBack()">Marcar como leído y volver</button>
+    </div>
