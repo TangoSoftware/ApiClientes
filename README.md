@@ -9,10 +9,11 @@ Este repositorio incluye el código fuente y la documentación necesaria para la
     + [Ambientes](#ambientes)
     + [Configurar API](#configApi)
  + [Modo de uso](#modouso)
-    + [utilización de la API](#usoApi)
-    + [utilización de la URL de notificacion](#usoNotif)
+    + [Utilización de la API](#usoApi)
+    + [Utilización de la URL de notificacion](#usoNotif)
+    + [Consola de ejemplo](#Console)
     + [Datos del Json](#djson)
- + [Preguntas frecuentes](#pregfrec)
+
 
 
 
@@ -24,7 +25,8 @@ Este repositorio incluye el código fuente y la documentación necesaria para la
 ### Versiones soportadas de Tango Gestión
 [<sub>Volver</sub>](#inicio)
 
-La versión requerida para consumir los comprobantes de Tango en formato JSON es: XX.YY.ZZZZ o superior.
+La versión mínima requerida de Tango Gestión para consumir los comprobantes en formato JSON es:
+XX.YY.ZZZZ o superior.
 
 <a name="precondiciones"></a>
 ### Precondiciones de funcionamiento
@@ -32,11 +34,11 @@ La versión requerida para consumir los comprobantes de Tango en formato JSON es
 
 Para poner a disposición los  JSONs de los comprobantes se requiere configurar previamente en Tango Gestión las siguientes funciones:
 
-• Dentro del ABM de Clientes marcar aquellos clientes que desea sincronizar con la aplicación Nexo Clientes. 
+• Dentro del ABM de Clientes marcar aquellos clientes que desea sincronizar con la aplicación Nexo Clientes para que publiquen comprobantes. 
 
 • Parametrizar el certificado digital fiscal en Tango para obtener el CAE de sus comprobantes electrónicos.(La API sólo entrega comprobantes electrónicos con CAE asignado por AFIP).
 
-• La empresa de Tango, cuyos comprobantes en JSON desea entregar vía API, se encuentre debidamente vinculada a través de Tango Sync a la aplicación Nexo Clientes.
+• La empresa de Tango, cuyos comprobantes en JSON desea entregar vía API, vinculada a través de Tango Sync a la aplicación Nexo Clientes.
 
 <a name="ambientes"></a>
 ### Ambientes
@@ -57,8 +59,12 @@ Para configurar el ambiente de producción desde Tango Sync debe vincular una em
 
 Luego de haber vinculado una empresa de nube con una empresa de Tango Gestión, acceda a nexo Clientes / API para parametrizar el servicio que entrega los JSONs de los comprobantes electrónicos.
 
-ACA VA IMAGEN DEL PERFIL, pulsando el menú API
---![imagen api](https://github.com/TangoSoftware/ApiTiendas/blob/master/api.jpg)
+(Pulse en el opción "API" para acceder a su configuración).
+
+![imagen api](https://github.com/TangoSoftware/ApiClientes/blob/master/men%C3%BA.JPG)
+
+
+
 
 En esta pantalla observará:
 
@@ -68,7 +74,7 @@ En esta pantalla observará:
 
 • **Notificar nuevos comprobantes a la URL:** Es la URL a la cual se desea informar cuando se tengan novedades de nuevos comprobantes disponibles para consumir en formato JSON.
 
-Pulse el botón &quot;Aceptar&quot; para confirmar los cambios
+Pulse el botón &quot;Aceptar&quot; para confirmar los cambios.
 
 <a name="modouso"></a>
 ## Modo de uso
@@ -83,7 +89,7 @@ A continuación se detalla de manera técnica como está compuesta la API, qué 
 
 #### Método: getjsonfrom
 
-- Tipo: GET
+- Tipo: GET.
 
 - Objetivo: Entregar los JSON de comprobantes cuya fecha de emisión sea mayor a una fecha dada.
 
@@ -98,7 +104,7 @@ A continuación se detalla de manera técnica como está compuesta la API, qué 
 
 #### Método: getnotdownloadedjsonfrom
 
-- Tipo: GET
+- Tipo: GET.
 
 - Objetivo: Entregar JSON de comprobantes que aún no fueron entregados por el servicio a partir de una fecha dada. 
 
@@ -112,7 +118,7 @@ A continuación se detalla de manera técnica como está compuesta la API, qué 
    
 #### Método: getjson
 
-- Tipo: GET
+- Tipo: GET.
 
 - Objetivo: Entregar JSON específico para un id de cliente y id de comprobante en particular.  
 
@@ -134,14 +140,23 @@ A continuación se detalla de manera técnica como está compuesta la API, qué 
 ### Utilización de la URL de notificación
 [<sub>Volver</sub>](#inicio)
 
-De modo adicional, se puede parametrizar en la configuración de la API en Nexo Clientes, una URL a la cual enviar una novedad cada vez que un cliente ponga a disposición un nuevo JSON asociado a un comprobante.
+De modo adicional, se puede parametrizar en la configuración de la API en Nexo Clientes, una URL a la cual enviar una novedad cada vez que un cliente ponga a disposición un nuevo JSON asociado a un comprobante. Para funcionar, se debe completar el campo **Notificar nuevos comprobantes a la URL**.
 
 Dicha URL deberá cumplir con el estándar XXXX, siendo de la forma:
 www.ejemplo.com
 o
-https://ejemplo.com/
+https://ejemplo.com
+
+Ante novedades de nuevos comprobantes publicados en Nexo Clientes, se enviará un request a la URL parametrizada con el id de cliente y el id de comprobante a notificar. Cumplirá el siguiente formato:
+www.ejemplo.com/IdCliente/IdComprobante
+
+<a name="Console"></a>
+### Aplicación de consola de ejemplo
+[<sub>Volver</sub>](#inicio)
+
 
 En este repositorio se deja a disponibilidad
+
 
 
 <a name="djson"></a>
@@ -151,14 +166,7 @@ En este repositorio se deja a disponibilidad
 VER EL README DEL REPO DE NEXO TIENDAS PARA MAYOR ORIENTACION
 
 
-<a name="pregfrec"></a>
-## Preguntas frecuentes
 
-
-- **¿PREG FREC 1?**
-
-| Respuesta1. |
-| --- |
 
 
 
