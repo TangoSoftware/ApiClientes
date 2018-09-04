@@ -48,7 +48,7 @@
                     </td>
                     <td>
                         @Html.ActionLink("Ver JSON", "ComprobanteJson", "Home", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, null) |
-                        @Html.ActionLink("Marcar como leído", "MarkAsReaded", "Home", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, new { @class = "readLink" })
+                        @Html.ActionLink("Marcar como leído", "MarkAsReaded", "Home", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, new { @class = "readLink", @style = "color:#c9302c;" })
                     </td>
                 </tr>
             }

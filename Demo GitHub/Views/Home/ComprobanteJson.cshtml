@@ -35,6 +35,10 @@
         <div>
             <div class="well" id="json" style="overflow:auto; width: 100%;">@Model.Json</div>
         </div>
-        <button id="btn" type="button" class="btn btn-default" onclick="copyJson()">Copiar Json</button>
-        <button id="btn" type="button" class="btn btn-danger" onclick="readAndBack()">Marcar como leído y volver</button>
+        <button id="btn" type="button" class="btn btn-default" onclick="copyJson()">
+            Copiar Json <span class="glyphicon glyphicon-copy"></span>
+        </button>
+        <button id="btn" type="button" class="btn btn-danger" onclick="readAndBack()">
+            Marcar como leído y volver <span class="glyphicon glyphicon-trash"></span>
+        </button>
     </div>
