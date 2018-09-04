@@ -149,11 +149,15 @@ Este repositorio incluye el código fuente de una aplicación web de ejemplo, de
  
  4. Incluir en la configuración de la API de Tango Clientes la URL correspondiente a esta aplicación desplegada en su servidor. Es decir, si la URL de la web en su servidor es http://www.miservidordeejemplo.com/, entonces la URL a notificar será http://www.miservidordeejemplo.com/home/notificar
 
+
 En la vista principal de la aplicación web figuran el ID del cliente, el token de seguridad, y la lista de nuevos comprobantes. Pdrá ver el JSON de cada comprobante o, directamente, marcarlo como leído, lo cual lo quitará inmediatamente de dicha lista.
-![imagen api](https://github.com/TangoSoftware/ApiClientes/blob/master/list.png)
+
+![imagen lista](https://github.com/TangoSoftware/ApiClientes/blob/master/list.png)
+
 
 En la vista del JSON del comprobante correspondiente, podrá ver el JSON, copiarlo y marcarlo como leído, lo cual también lo quitará inmediatamente de la lista de nuevos comprobantes.
-![imagen api](https://github.com/TangoSoftware/ApiClientes/blob/master/json.png)
+
+![imagen json](https://github.com/TangoSoftware/ApiClientes/blob/master/json.png)
 
 <a name="djson"></a>
 ### Detalle y composición del JSON
