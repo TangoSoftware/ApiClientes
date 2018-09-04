@@ -4,7 +4,7 @@
     <script type="text/javascript">
         function copyJson() {
             var textarea = document.createElement('textarea');
-            textarea.textContent = document.getElementById("jsonPre").textContent;
+            textarea.textContent = document.getElementById("json").textContent;
             document.body.appendChild(textarea);
 
             var selection = document.getSelection();
@@ -22,8 +22,9 @@
 }
 
 <div class="container">
-    <h2>Token de seguridad</h2>
-    <p> Cliente @Model.IdCliente, comprobante @Model.IdComprobante </p>
-    <pre id="jsonPre">@Model.Json</pre>
-    <button id="btn" type="button" class="btn btn-default" onclick="copyJson()">Copiar JSON</button>
+    <h3>JSON del comprobante @Model.IdComprobante del cliente @Model.IdCliente</h3>
+    <div>
+        <div class="well" id="json" style="overflow:auto; width: 100%;">@Model.Json</div>
+    </div>   
+    <button id="btn" type="button" class="btn btn-default" onclick="copyJson()">Copiar Json</button>
 </div>

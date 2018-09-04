@@ -11,41 +11,21 @@
                 }
             });
         });
-        $("#renewAccess").click(function (e) {
-            e.preventDefault();
-            $.ajax({
-                type: "GET",
-                url: "http://localhost:40694/Home/SetAccessData",
-                data: {
-                    idCliente: parseInt($("#IdCliente").val()),
-                    token: $("#Token").val()
-                },
-                success: function () {
-                    location.reload();
-                }
-            });
-        });
-    </script>        
+    </script>
 }
 
-<h2>Obtener JSON de comprobante</h2>
-<p>Presione en "Ver JSON" al lado del comprobante de interés. De ser necesario, actualice el ID del cliente y el token de seguridad.</p>
-<div class="row">
-    <div class="col-md-3">
-        <h4>ID del cliente</h4>
-        <p>
-            @Html.TextBox("IdCliente", Model.IdCliente, new { @class = "form-control" })
-        </p>
-    </div>
-    <div class="col-md-3">
-        <h4>Token de seguridad</h4>
-        <p>
-            @Html.TextBox("Token", Model.Token, new { @class = "form-control" })
-        </p>
-    </div>
+<h2>Demo lector de JSONs de comprobantes</h2>
+<p>Presione en "Ver JSON" al lado del comprobante de interés. Para configurar el identificador del cliente y el token, debe modificar los valores en Web.config.</p>
+<div class="well">
+    <h4>Identificador del cliente</h4>
+    <p>
+        @Model.IdCliente
+    </p>
+    <h4 style="margin-top: 30px;">Token de seguridad</h4>
+    <p style="text-overflow: ellipsis; overflow: hidden">
+        @Model.Token
+    </p>
 </div>
-<button id="renewAccess" type="button" class="btn btn-default">Actualizar cliente y token</button>
-<br /><br />
 <h3>Nuevos comprobantes</h3>
 <div class="table-responsive">
     <table class="table" style="width:50%">
@@ -67,8 +47,8 @@
                         @Html.DisplayFor(modelItem => item.IdComprobante)
                     </td>
                     <td>
-                        @Html.ActionLink("Ver JSON", "Index", "Json", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, null) |
-                        @Html.ActionLink("Marcar como leído", "MarkAsReaded", "Json", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, new { id = "readLink" })
+                        @Html.ActionLink("Ver JSON", "ComprobanteJson", "Home", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, null) |
+                        @Html.ActionLink("Marcar como leído", "MarkAsReaded", "Home", new { @idCliente = item.IdCliente, @idComprobante = item.IdComprobante }, new { id = "readLink" })
                     </td>
                 </tr>
             }
