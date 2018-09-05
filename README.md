@@ -131,7 +131,7 @@ Al recibir el correo electrónico obtendrá el detalle de como utilizar la API d
 ### Utilización de la URL de notificación
 [<sub>Volver</sub>](#inicio)
 
-Se puede parametrizar en la configuración de la API en Nexo Clientes, una URL a la cual enviar una novedad cada vez que un cliente ponga a disposición un nuevo JSON asociado a un comprobante. Para funcionar, se debe completar el campo **Notificar nuevos comprobantes a la URL**. Dicha URL deberá cumplir con el estándar [RFC 1738](https://www.rfc-es.org/rfc/rfc1738-es.txt), ya que la configuración rechazará cualquier UL con formato inválido.
+Se puede parametrizar en la configuración de la API en Nexo Clientes, una URL a la cual enviar una novedad cada vez que un cliente ponga a disposición un nuevo JSON asociado a un comprobante. Para funcionar, se debe completar el campo **Notificar nuevos comprobantes a la URL**. Dicha URL deberá cumplir con el estándar [RFC 1738](https://www.rfc-es.org/rfc/rfc1738-es.txt), ya que la configuración rechazará cualquier URL con formato inválido.
 
 Ante novedades de nuevos comprobantes publicados en Nexo Clientes, se enviará un request a la URL parametrizada con el ID de cliente y el ID de comprobante a notificar. Cumplirá el siguiente formato: http://www.ejemplo.com/Id_cliente/Id_comprobante
 
@@ -147,7 +147,8 @@ Este repositorio incluye el código fuente de una aplicación web de ejemplo, de
  
  3. Desplegar la aplicación en un servidor propio.
  
- 4. Incluir en la configuración de la API de Tango Clientes la URL correspondiente a esta aplicación desplegada en su servidor. Es decir, si la URL de la web en su servidor es http://www.miservidordeejemplo.com/, entonces la URL a notificar será http://www.miservidordeejemplo.com/home/notificar
+ 4. Incluir en la configuración de la API de Tango Clientes la URL correspondiente a esta aplicación desplegada en su servidor. Es decir, si la URL de la web en su servidor es http://www.miservidordeejemplo.com/, entonces la URL a notificar será http://www.miservidordeejemplo.com/home/notificar. La URL que contiene está aplicación es a modo de ejemplo y coincide con {URL del servidor}/home/notificar.
+
 
 
 En la vista principal de la aplicación web figuran el ID del cliente, el token de seguridad, y la lista de nuevos comprobantes. Pdrá ver el JSON de cada comprobante o, directamente, marcarlo como leído, lo cual lo quitará inmediatamente de dicha lista.
