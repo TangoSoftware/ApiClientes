@@ -24,7 +24,7 @@ Este repositorio incluye el código fuente y la documentación necesaria para la
 [<sub>Volver</sub>](#inicio)
 
 La versión mínima requerida de Tango Gestión para consumir los comprobantes en formato JSON es:
-XX.YY.ZZZZ o superior.
+18.01.0000 o superior.
 
 <a name="precondiciones"></a>
 ### Precondiciones de funcionamiento
@@ -164,4 +164,209 @@ En la vista del JSON del comprobante correspondiente, podrá ver el JSON, copiar
 ### Detalle y composición del JSON
 [<sub>Volver</sub>](#inicio)
 
-VER EL README DEL REPO DE NEXO TIENDAS PARA MAYOR ORIENTACION
+### Formato del JSON
+
+{  
+ "InformacionComprobante":{  
+  &quot;TipoDeComprobante&quot;:&quot;FAC&quot;,  
+  &quot;NumeroDeComprobante&quot;:&quot;A000100000881&quot;,  
+  &quot;PuntoDeVenta&quot;:&quot;0001&quot;,  
+  &quot;CodigoTalonario&quot;:&quot;1&quot;,  
+  &quot;FechaDeEmision&quot;:&quot;2018-09-04T00:00:00&quot;,  
+  &quot;AutorizacionComprobanteElectronico&quot;:{  
+   &quot;Codigo&quot;:68184648262638,  
+   &quot;FechaDeVencimiento&quot;:&quot;2018-10-03T00:00:00.000&quot;,  
+   &quot;ValidacionAfip&quot;:&quot;A&quot;  
+  }  
+},  
+
+ "InformacionComprobanteReferencia":{  
+  &quot;TipoDeComprobanteReferencia&quot;:&quot;REM&quot;,  
+  &quot;NumeroDeComprobanteReferencia&quot;:&quot;X000100000070&quot;  
+},  
+
+ "InformacionVendedor":{  
+  &quot;Cuit&quot;:&quot;30-22111111-3&quot;,  
+  &quot;CondicionIVA&quot;:&quot;RI&quot;  
+},  
+
+ "InformacionComprador":{  
+  &quot;TipoDocumento&quot;:&quot;CUIT&quot;,  
+  &quot;NumeroDocumento&quot;:&quot;50-00000391-0&quot;,  
+  &quot;Denominacion&quot;:&quot;Distribuidora Lombardini&quot;,  
+  &quot;CondicionIngresosBrutos&quot;:&quot;M Multilateral&quot;,  
+  &quot;NumeroIngresosBrutos&quot;:&quot;03034560303456892422&quot;,  
+  &quot;Domicilio&quot;:&quot;Cerrito 1186&quot;,  
+  &quot;Localidad&quot;:&quot;Capital Federal&quot;,  
+  &quot;Provincia&quot;:&quot;08 CHUBUT&quot;,  
+  &quot;CodigoPostal&quot;:&quot;1010&quot;,  
+  &quot;Email&quot;:&quot;DistribuidoraLombardini@gmail.com&quot;  
+},  
+
+ "Items":[  
+  {  
+   &quot;Codigo&quot;:&quot;030006528&quot;,  
+   &quot;Descripcion&quot;:&quot;AURICULARES MDR-110LP&quot;,  
+   &quot;ImporteTotal&quot;:121.00,  
+   &quot;Cantidad&quot;:1.0000000000,  
+   &quot;Unidad&quot;:&quot;UNI&quot;,  
+   &quot;PrecioUnitario&quot;:100.0,  
+   &quot;ImporteDescuento&quot;:0.00,  
+   &quot;Impuestos&quot;:[  
+   {  
+   &quot;CodigoImpuesto&quot;:&quot;1&quot;,  
+   &quot;CodigoAFIP&quot;:&quot;5&quot;,  
+   &quot;PorcentajeAlicuota&quot;:21.00,  
+   &quot;Importe&quot;:21.00  
+   }  
+   ]  
+  }  
+],  
+
+ "Totales":{  
+  &quot;ImporteTotalNetoGravado&quot;:100.00,  
+  &quot;ImporteOperacionesExentas&quot;:0.00,  
+  &quot;ImporteTotalFactura&quot;:121.00,  
+  &quot;TipoDeCambio&quot;:1.0,  
+  &quot;CodigoMoneda&quot;:&quot;PES&quot;,  
+  &quot;DescuentoRecargo&quot;:{  
+   &quot;ImporteDescuento&quot;:0.00,  
+   &quot;PorcentajeDescuento&quot;:0.00,  
+   &quot;PorcentajeRecargo&quot;:0.00,  
+   &quot;PorcentajeInteres&quot;:0.00  
+  },  
+  &quot;Impuestos&quot;:[  
+   {  
+   &quot;CodigoImpuesto&quot;:&quot;1&quot;,  
+   &quot;PorcentajeImpuesto&quot;:21.00,  
+   &quot;ImporteImpuesto&quot;:21.00,  
+   &quot;ImporteGravado&quot;:100.00,  
+   &quot;CodigoAFIP&quot;:&quot;5&quot;  
+   }  
+  ]  
+},  
+
+ "Extensiones":{  
+  &quot;ExtensionMediosDePago&quot;:{  
+   &quot;Pagos&quot;:[  
+   {  
+   &quot;CondicionVenta&quot;:3,  
+   &quot;Codigo&quot;:&quot;CC&quot;,  
+   &quot;Descripcion&quot;:&quot;30/60/90 CON INTERES&quot;,  
+   &quot;Importe&quot;:121.000  
+   }  
+   ],    
+   &quot;Vencimientos&quot;:[  
+   {  
+   &quot;FechaVencimiento&quot;:&quot;2018-11-03T00:00:00-03:00&quot;,  
+   &quot;ImporteCuota&quot;:121.00  
+   }  
+   ]  
+  }  
+}  
+}
+
+<br/><br/>
+
+### Datos del JSON
+  
+
+**Tópico InformacionComprobante**
+
+| **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
+| --- | --- | --- | --- | --- |
+| **TipoDeComprobante** | Si | Tipo de comprobante | Varchar(3) | FAC |
+| **NumeroDeComprobante** | Si | Número de comprobante | Varchar(13) | A000100000881 |
+| **PuntoDeVenta** | Si | Número de punto de venta | Varchar(4) | 0001 |
+| **CodigoTalonario** | Si | Número de talonario | ENTERO_TG(2) | 1 |
+| **FechaDeEmision** | Si | Fecha de emisión del comprobante | Datetime | 2018-09-04 00:00:00 |
+| **AutorizacionComprobanteElectronico (Código)** | No | CAE informado por AFIP | Varchar(14) | 68184648262638 |
+| **AutorizacionComprobanteElectronico (FechaDeVencimiento)** | No | Fecha de vencimiento del CAE | Datetime | 2018-10-03 00:00:00.000 |
+| **AutorizacionComprobanteElectronico (ValidacionAfip)** | No | Estado de la autorización | Varchar(1) | 'A' = Aprobado / 'P'= Pendiente / 'R' = Rechazado |
+
+<br/><br/>
+
+**Tópico InformacionComprobanteReferencia**
+
+| **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
+| --- | --- | --- | --- | --- |
+| **TipoDeComprobanteReferencia** | No | Tipo de comprobante de referencia | Varchar(3) | REM |
+| **NumeroDeComprobanteReferencia** | No | Número de comprobante de referencia | Varchar(13) | X000100000070 |
+
+<br/><br/>
+
+**Tópico InformacionVendedor**
+
+| **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
+| --- | --- | --- | --- | --- |
+| **Cuit** | Si | C.U.I.T. | Varchar(13) | 30-22111111-3 |
+| **CondicionIVA** | Si | Condición frente al I.V.A. | Varchar(3) | RI |
+
+<br/><br/>
+
+**Tópico InformacionComprador**
+
+| **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
+| --- | --- | --- | --- | --- |
+| **TipoDocumento** | No | Tipo de documento | smallint(2) | CUIT |
+| **NumeroDocumento** | No | Número de documento | Varchar(20) | 50-00000391-0 |
+| **Denominacion** | Si | Nombre del cliente | Varchar(60) | Distribuidora Lombardini |
+| **CondicionIngresosBrutos** | Si |  Condición de Ingresos Brutos | Varchar(1) | ' ' =   No liquida / 'L' = Local / 'M'= Multilateral / 'S' = Simplificado |
+| **NumeroIngresosBrutos** | No | Número de Ingresos Brutos | Varchar(20) | 03034560303456892422 |
+| **Domicilio** | Si | Domicilio del cliente | Varchar(30) | Cerrito 1186 |
+| **Localidad** | Si | Localidad del cliente | Varchar(20) | Capital Federal |
+| **Provincia** | Si | Provincia del cliente (Código y Descripción) | Varchar(2) y Varchar(20) | 08 CHUBUT |
+| **CodigoPostal** | Si | Código postal del cliente | Varchar(8) | 1010 |
+| **Email** | No | Email del cliente | Varchar(255) | DistribuidoraLombardini@gmail.com |
+
+<br/><br/>
+
+**Tópico Items**
+
+| **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
+| --- | --- | --- | --- | --- |
+| **Codigo** | Si | Código de artículo | Varchar(15) | 030006528 |
+| **Descripcion** | No | Descripción del artículo | Varchar(30) | AURICULARES MDR-110LP |
+| **ImporteTotal** | Si | Importe total del renglón | DECIMAL_TG(13) | 121.00 |
+| **Cantidad** | Si | Cantidad del artículo | DECIMAL_TG(13) | 1.0000000000 |
+| **Unidad** | Si | Unidad de medida del artículo | Varchar(10) | UNI |
+| **PrecioUnitario** | Si | Precio unitario del artículo | DECIMAL_TG(13) | 100.0000000 |
+| **ImporteDescuento** | Si | Importe del descuento del renglón | DECIMAL_TG(13) | 0.00 |
+| **Impuestos (CodigoImpuesto)** | Si | Código del impuesto | Varchar(2) | 1 |
+| **Impuestos (CodigoAFIP)** | Si | Código A.F.I.P. | Varchar(3) | 5 |
+| **Impuestos (PorcentajeAlicuota)** | Si | Porcentaje del impuesto | DECIMAL_TG(13) | 21.00 |
+| **Impuestos (Importe)** | Si | Importe del impuesto | DECIMAL_TG(13) | 21.00 |
+
+<br/><br/>
+
+**Tópico Totales**
+
+| **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
+| --- | --- | --- | --- | --- |
+| **ImporteTotalNetoGravado** | Si | Importe del neto gravado | DECIMAL_TG(13) | 100.00 |
+| **ImporteOperacionesExentas** | Si | Importe de operaciones exentas | DECIMAL_TG(13) | 0.00 |
+| **ImporteTotalFactura** | Si | Importe de la factura | DECIMAL_TG(13) | 121.00 |
+| **TipoDeCambio** | Si | Cotización | DECIMAL_TG(13) | 1.0 |
+| **CodigoMoneda** | No | Código de moneda | Char(3) | PES |
+| **DescuentoRecargo (ImporteDescuento)** | Si | Importe del descuento | DECIMAL_TG(13) | 0.00 |
+| **DescuentoRecargo (PorcentajeDescuento)** | Si | Porcentaje del descuento | DECIMAL_TG(13) | 0.00 |
+| **DescuentoRecargo (PorcentajeRecargo)** | Si | Porcentaje del recargo | DECIMAL_TG(13) | 0.00 |
+| **DescuentoRecargo (PorcentajeInteres)** | Si | Porcentaje de interés | DECIMAL_TG(13) | 0.00 |
+| **Impuestos (CodigoImpuesto)** | Si | Código del impuesto | ENTERO_TG(2) | 1 |
+| **Impuestos (PorcentajeImpuesto)** | Si | Porcentaje del impuesto | DECIMAL_TG(13) | 21.00 |
+| **Impuestos (ImporteImpuesto)** | Si | Importe del impuesto | DECIMAL_TG(13) | 21.00 |
+| **Impuestos (ImporteGravado)** | Si | Importe gravado | DECIMAL_TG(13) | 100.00 |
+| **Impuestos (CodigoAFIP)** | Si | Código A.F.I.P. | Varchar(3) | 5 |
+
+<br/><br/>
+
+**Tópico Extensiones**
+
+| **Campo** | **Requerido** | **Descripción** | **Tipo de Dato** | **Valores Posibles / Ejemplos** |
+| --- | --- | --- | --- | --- |
+| **ExtensionMediosDePago (Pagos {CondicionVenta})** | Si | Condición de venta | DECIMAL_TG(13) | 3 |
+| **ExtensionMediosDePago (Pagos {Codigo})** | Si | Codigo de cuenta | DECIMAL_TG(13) | 'CC'= Cuenta Corriente o el código de la cuenta ‘Efectivo’ |
+| **ExtensionMediosDePago (Pagos {Descripcion})** | Si | Descripción | DECIMAL_TG(13) | 30/60/90 CON INTERES |
+| **ExtensionMediosDePago (Pagos {Importe})** | Si | Importe total del pago | DECIMAL_TG(13) | 121.000 |
+| **ExtensionMediosDePago (Vencimientos {FechaVencimiento})** | No | Fecha de vencimiento de la cuota | Datetime | 2018-10-03 00:00:00-03:00 |
+| **ExtensionMediosDePago (Vencimientos {ImporteCuota})** | No | Importe de la cuota | DECIMAL_TG(13) | 121.00 |
