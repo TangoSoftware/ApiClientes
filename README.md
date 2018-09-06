@@ -24,7 +24,7 @@ Este repositorio incluye el código fuente y la documentación necesaria para la
 [<sub>Volver</sub>](#inicio)
 
 La versión mínima requerida de Tango Gestión para consumir los comprobantes en formato JSON es:
-18.01.0000 o superior.
+18.01.000 o superior.
 
 <a name="precondiciones"></a>
 ### Precondiciones de funcionamiento
