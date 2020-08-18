@@ -86,7 +86,7 @@ Al recibir el correo electrónico obtendrá el detalle de como utilizar la API d
 
 * Objetivo: entregar los JSON de comprobantes cuya fecha de emisión sea mayor a una fecha dada.
 
-* URL del servicio: https://tclientes.axoft.com/api/comprobantes/getjsonfrom/{id_de_cliente} 
+* URL del servicio: https://clientes.axoft.com/api/comprobantes/getjsonfrom/{id_de_cliente} 
 
 * Composición del header:
 
@@ -101,7 +101,7 @@ Al recibir el correo electrónico obtendrá el detalle de como utilizar la API d
 
 * Objetivo: entregar JSON de comprobantes que aún no fueron entregados por el servicio a partir de una fecha dada. 
 
-* Url del servicio: https://tclientes.axoft.com/api/comprobantes/getnotdownloadedjsonfrom/{id_cliente} 
+* Url del servicio: https://clientes.axoft.com/api/comprobantes/getnotdownloadedjsonfrom/{id_cliente} 
 
 * Composición del header:
 
@@ -115,7 +115,7 @@ Al recibir el correo electrónico obtendrá el detalle de como utilizar la API d
 
 * Objetivo: entregar JSON específico para un ID de cliente y un ID de comprobante en particular.  
 
-* URL del servicio: https://tclientes.axoft.com/api/comprobantes/getjson/{id_cliente}/{id_comprobante}.
+* URL del servicio: https://clientes.axoft.com/api/comprobantes/getjson/{id_cliente}/{id_comprobante}.
 
    * id_cliente: es el ID de cliente asociado al servicio. Viene especificado en el correo electrónico. Además, puede ser obtenido consultando la vista de configuración de la API.
    
